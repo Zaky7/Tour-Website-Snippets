@@ -24,7 +24,13 @@ Dark green: #28b485
      padding: 30px;
  }
 
- /********************************  Header    *********************************/
+
+
+
+
+/*=========================================================
+  01 -> HEADER
+===========================================================*/
 
  header {
    height: 95vh;
@@ -35,10 +41,15 @@ Dark green: #28b485
    position: relative;
  }
 
+
+ /*----------------------------*\
+  Logo
+\*----------------------------*/
+
  /* 
     Header is the parent Element which serves as a reference to the child logo Element
     therefore the header has position relative
-    */
+   */
  .logo-box {
     position: absolute;
     top: 40px;
@@ -62,18 +73,133 @@ Dark green: #28b485
  .heading-primary {
    text-transform: uppercase;
    color: #fff;
+
+   /* Removing shakyness in css animations of header */
+   backface-visibility: hidden;
+   margin-bottom: 35px;
  }
 
  .heading-primary-main {
      display: block;
-     font-size: 60px;
+     font-size: 80px;
      font-weight: 400;
-     letter-spacing: 35px;
+     letter-spacing: 25px;
+     animation-name: moveInLeft;
+     animation-duration: 1s;
+     animation-timing-function: ease-out;
+     /* 
+     animation-iteration-count: 2;
+     animation-delay: 2s; 
+     */
+
  }
 
  .heading-primary-sub {
     display: block;
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 9.3px;
+    /* animation-name: moveInRight;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; */
+    animation: moveInRight 1s ease-out;
  }
+
+
+
+ /*----------------------------*\
+  Animations for the header
+\*----------------------------*/
+
+/*
+   Transform property of css is used for the transformation of Content
+   TranslateX is the x-directions ---x> -x move to left and +x move to right\
+   Keyframs specifies the animation code
+*/
+
+@keyframes moveInLeft {
+    
+    /* Start of Animations */
+
+    0% {
+       opacity: 0;
+       transform: translateX(-100px);
+    }
+
+    80% {
+      transform: translateX(10px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
+@keyframes moveInRight {
+    
+  /* Start of Animations */
+
+  0% {
+     opacity: 0;
+     transform: translateX(100px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+/* Button white main */
+/* 
+   PseudoClasses are the state of the Element
+   When you use hover it determines the state
+ */
+
+
+.btn:link, 
+.btn:visited {
+   text-transform: uppercase;
+   text-decoration: none;
+   padding: 15px 40px;
+   display: inline-block;
+   transition: all .2s;
+}
+
+.btn-white {
+  background-color: #fff;
+  color: #777;
+  border-radius: 28px;
+}
+
+   /*----------------------------*\
+  Animations for the Button
+\*----------------------------*/
+
+/*
+    Negative Value moving up and positive value moving down
+    Y axis move from top to Bottom.
+ */
+
+.btn:hover {
+  transform: translateY(-3px);
+
+  /* X, Y, blurr, color   We reduce the show in active state*/
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2)
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2)
+}
+
+
+
+
+
+
+
