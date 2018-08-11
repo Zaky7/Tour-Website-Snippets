@@ -1,11 +1,28 @@
+/*Table OF Contents
+------------------------------------
+1 GENERAL
+------ 1.1  Typography
+------ 1.2  Resetting
+2 HEADER
+----2.1 Logo
+----2.2 text-box
+    2.3 heading-primary
+      2.3.1 heading-primary-main
+      2.3.2 heading-primary-sub
+      2.3.3 btn btn-white btn-animated
+------------------------------------*/
+
 /*
 COLORS:
-
 Light green: #7ed56f
 Medium green: #55c57a
 Dark green: #28b485
-
 */
+
+
+/*=========================================================
+  RESETTING 
+===========================================================*/
 
 /* Resetting the Margins and Padding using universal Selector */
  * {
@@ -29,7 +46,7 @@ Dark green: #28b485
 
 
 /*=========================================================
-  01 -> HEADER
+  >2  HEADER
 ===========================================================*/
 
  header {
@@ -43,13 +60,13 @@ Dark green: #28b485
 
 
  /*----------------------------*\
-  Logo
+  >2.1 Logo
 \*----------------------------*/
 
  /* 
     Header is the parent Element which serves as a reference to the child logo Element
     therefore the header has position relative
-   */
+*/
  .logo-box {
     position: absolute;
     top: 40px;
@@ -61,6 +78,11 @@ Dark green: #28b485
    height: 35px;
  }
 
+
+ /*----------------------------*\
+  >2.2 text-box
+\*----------------------------*/
+
  /* Text box Wrapper */
  .text-box {
    position: absolute;
@@ -70,6 +92,11 @@ Dark green: #28b485
    text-align: center;
  }
 
+  /*----------------------------*\
+  >2.3 heading-primary
+\*----------------------------*/
+
+
  .heading-primary {
    text-transform: uppercase;
    color: #fff;
@@ -78,6 +105,10 @@ Dark green: #28b485
    backface-visibility: hidden;
    margin-bottom: 35px;
  }
+
+/*----------------------------*\
+  >2.3.1 heading-primary-main
+\*----------------------------*/
 
  .heading-primary-main {
      display: block;
@@ -94,6 +125,10 @@ Dark green: #28b485
 
  }
 
+/*----------------------------*\
+  >2.3.2 heading-primary-sub
+\*----------------------------*/
+
  .heading-primary-sub {
     display: block;
     font-size: 24px;
@@ -105,22 +140,16 @@ Dark green: #28b485
     animation: moveInRight 1s ease-out;
  }
 
-
-
- /*----------------------------*\
-  Animations for the header
-\*----------------------------*/
-
 /*
+   Animations for the header
+
    Transform property of css is used for the transformation of Content
    TranslateX is the x-directions ---x> -x move to left and +x move to right\
    Keyframs specifies the animation code
 */
 
 @keyframes moveInLeft {
-    
     /* Start of Animations */
-
     0% {
        opacity: 0;
        transform: translateX(-100px);
@@ -135,6 +164,7 @@ Dark green: #28b485
       transform: translateX(0);
     }
 }
+
 @keyframes moveInRight {
     
   /* Start of Animations */
@@ -154,12 +184,34 @@ Dark green: #28b485
   }
 }
 
-/* Button white main */
+
+@keyframes moveInButtom {
+  0% {
+     opacity: 0;
+     transform: translateY(100px);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
+/*----------------------------*\
+  >2.3.3 btn btn-white
+\*----------------------------*/
+
+
 /* 
    PseudoClasses are the state of the Element
    When you use hover it determines the state
  */
-
 
 .btn:link, 
 .btn:visited {
@@ -168,6 +220,8 @@ Dark green: #28b485
    padding: 15px 40px;
    display: inline-block;
    transition: all .2s;
+   /* see Comment below for explation */
+   position: relative;
 }
 
 .btn-white {
@@ -176,11 +230,9 @@ Dark green: #28b485
   border-radius: 28px;
 }
 
-   /*----------------------------*\
-  Animations for the Button
-\*----------------------------*/
-
 /*
+    Animations for the Button
+
     Negative Value moving up and positive value moving down
     Y axis move from top to Bottom.
  */
@@ -198,8 +250,47 @@ Dark green: #28b485
 }
 
 
+/* 
+ We create a pseudo Element which appears behind the Button Element when we hover over it 
+ It appears like the child of the Element
+*/
+
+/* We need to specify the content and display otherwise it won't work */
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  /* Hight value of border radius automatically set the Radius */
+  border-radius: 100px;
+  z-index: -1;
+  transition: all .4s;
+}
+ 
+.btn-white::after {
+  background-color: #fff;
+}
+
+/* 
+  We make position of btn as absolute so that it can have properties relative to the parent element. Since next parent is h1. Its properties are coresponding to the h1. Therefore in order to make its properties corresponding to btn we make it postion: relative
+*/
 
 
+/* It will transform the after element when we hover over the Button */
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+.btn-animated {
+  animation: moveInButtom .5 ease-out 1.35s;
+  animation-fill-mode: backwards;
+}
 
 
 
