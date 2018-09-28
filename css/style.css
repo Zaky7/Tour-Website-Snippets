@@ -82,14 +82,14 @@ Dark green: #28b485
     Header is the parent Element which serves as a reference to the child logo Element
     therefore the header has position relative
 */
- .logo-box {
+ .header__logo-box {
     position: absolute;
     top: 4rem;
     left: 4rem;
  }
 
 /* We need to figure out either height or width other would be figured out by browser */
- .logo {
+ .header__logo {
    height: 3.5rem;
  }
 
@@ -99,7 +99,7 @@ Dark green: #28b485
 \*----------------------------*/
 
  /* Text box Wrapper */
- .text-box {
+ .header__text-box {
    position: absolute;
    left: 50%;
    top: 50%;
@@ -125,7 +125,7 @@ Dark green: #28b485
   >2.3.1 heading-primary-main
 \*----------------------------*/
 
- .heading-primary-main {
+ .heading-primary--main {
      display: block;
      font-size: 8rem;
      font-weight: 400;
@@ -144,7 +144,7 @@ Dark green: #28b485
   >2.3.2 heading-primary-sub
 \*----------------------------*/
 
- .heading-primary-sub {
+ .heading-primary--sub {
     display: block;
     font-size: 2.4rem;
     font-weight: 700;
@@ -241,7 +241,7 @@ Dark green: #28b485
    position: relative;
 }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777;
   border-radius: 2.8rem;
@@ -288,7 +288,7 @@ Dark green: #28b485
   transition: all .4s;
 }
  
-.btn-white::after {
+.btn--white::after {
   background-color: #fff;
 }
 
@@ -304,7 +304,7 @@ Dark green: #28b485
   opacity: 0;
 }
 
-.btn-animated {
+.btn--animated {
   animation: moveInButtom .5 ease-out 1.35s;
   animation-fill-mode: backwards;
 }
