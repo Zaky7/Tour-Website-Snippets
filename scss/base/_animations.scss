@@ -1,0 +1,51 @@
+@keyframes moveInLeft {
+  /* Start of Animations */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    transform: translateX(1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes moveInRight {
+  /* Start of Animations */
+
+  0% {
+    opacity: 0;
+    transform: translateX(10rem);
+  }
+
+  80% {
+    transform: translateX(-1rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes moveInButtom {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-2.5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}

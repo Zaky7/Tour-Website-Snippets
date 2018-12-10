@@ -1,0 +1,37 @@
+ /* We are inheriting the Fonts of the Html Element */
+ body {
+   font-family: "Lato";
+   font-weight: 400;
+   /* font-size: 16px; */
+   line-height: 1.7;
+   color: #777;
+   padding: 3rem;
+ }
+
+
+ .heading-primary {
+   text-transform: uppercase;
+   color: #fff;
+
+   /* Removing shakyness in css animations of header */
+   backface-visibility: hidden;
+   margin-bottom: 3.5rem;
+
+   &--main {
+     display: block;
+     font-size: 8rem;
+     font-weight: 400;
+     letter-spacing: 2.5rem;
+     animation-name: moveInLeft;
+     animation-duration: 1s;
+     animation-timing-function: ease-out;
+   }
+
+   &--sub {
+     display: block;
+     font-size: 2.4rem;
+     font-weight: 700;
+     letter-spacing: 0.93rem;
+     animation: moveInRight 1s ease-out;
+   }
+ }

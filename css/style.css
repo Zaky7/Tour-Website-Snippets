@@ -1,4 +1,141 @@
-/*Table OF Contents
+/* We are inheriting the Fonts of the Html Element */
+body {
+  font-family: "Lato";
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: #777;
+  padding: 3rem; }
+
+.heading-primary {
+  text-transform: uppercase;
+  color: #fff;
+  /* Removing shakyness in css animations of header */
+  backface-visibility: hidden;
+  margin-bottom: 3.5rem; }
+  .heading-primary--main {
+    display: block;
+    font-size: 8rem;
+    font-weight: 400;
+    letter-spacing: 2.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out; }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 0.93rem;
+    animation: moveInRight 1s ease-out; }
+
+/*=========================================================
+    RESETTING
+  ===========================================================*/
+/* Resetting the Margins and Padding using universal Selector */
+*,
+*::before,
+*::after {
+  margin: 0px;
+  padding: 0px;
+  /* We want to force inheritance by default */
+  box-sizing: inherit; }
+
+/*
+            Since we are converting the px to rem so that we can make responsive Design
+            Therefore we convert 10px = 1 rem
+            Since user can change the default font size. ByDefault font-size is 16px
+            so the font-size of html is 16px;
+            62.5*16 = 10px therefore the font-size is 62.5%
+            Internet exploral dont support rems
+          */
+html {
+  font-size: 62.5%; }
+
+/* We are inheriting the Fonts of the Html Element */
+body {
+  /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
+  box-sizing: border-box; }
+
+.btn:link, .btn:visited {
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1.5rem 4rem;
+  display: inline-block;
+  transition: all .2s;
+  border-radius: 10rem;
+  font-size: 1.6rem;
+  /* see Comment below for explation */
+  position: relative;
+  /* In order align the button in the Center we have set the header__text-box text-align propertes because button is inline element*/ }
+
+.btn--white {
+  background-color: #fff;
+  color: #777;
+  border-radius: 2.8rem; }
+
+.btn:hover {
+  transform: translateY(-0.3rem);
+  /* X, Y, blurr, color   We reduce the show in active state*/
+  box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.2); }
+
+.btn:active {
+  transform: translateY(-0.1rem);
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2); }
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  border-radius: 10rem;
+  z-index: -1;
+  transition: all .4s; }
+
+.btn--white::after {
+  background-color: #fff; }
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0; }
+
+.btn--animated {
+  animation: moveInButtom .5 ease-out 1.35s;
+  animation-fill-mode: backwards; }
+
+/*=========================================================
+          >2  HEADER
+        ===========================================================*/
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
+  background-size: cover;
+  /* background-position: top; */
+  /* Start from top left move clockwise */
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+  position: relative;
+  /*
+                  Header is the parent Element which serves as a reference to the child logo Element
+                  therefore the header has position relative
+              */
+  /* Text box Wrapper */ }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }
+
+/*
+Table OF Contents
   ------------------------------------
   1 GENERAL
   ------ 1.1  Typography
@@ -17,188 +154,3 @@
   Medium green: #55c57a
   Dark green: #28b485
   */
-/*=========================================================
-    RESETTING
-  ===========================================================*/
-/* Resetting the Margins and Padding using universal Selector */
-*,
-*::before,
-*::after {
-  margin: 0px;
-  padding: 0px;
-  /* We want to force inheritance by default */
-  box-sizing: inherit;
-}
-
-/*
-          Since we are converting the px to rem so that we can make responsive Design
-          Therefore we convert 10px = 1 rem
-          Since user can change the default font size. ByDefault font-size is 16px
-          so the font-size of html is 16px;
-          62.5*16 = 10px therefore the font-size is 62.5%
-          Internet exploral dont support rems
-        */
-html {
-  font-size: 62.5%;
-}
-
-/* We are inheriting the Fonts of the Html Element */
-body {
-  font-family: "Lato";
-  font-weight: 400;
-  /* font-size: 16px; */
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
-  box-sizing: border-box;
-}
-
-/*=========================================================
-        >2  HEADER
-      ===========================================================*/
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
-  background-size: cover;
-  /* background-position: top; */
-  /* Start from top left move clockwise */
-  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-  position: relative;
-  /*
-          Header is the parent Element which serves as a reference to the child logo Element
-          therefore the header has position relative
-      */
-  /* Text box Wrapper */
-}
-.header__logo-box {
-  position: absolute;
-  top: 4rem;
-  left: 4rem;
-}
-.header__logo {
-  height: 3.5rem;
-}
-.header__text-box {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-}
-
-.heading-primary {
-  text-transform: uppercase;
-  color: #fff;
-  /* Removing shakyness in css animations of header */
-  backface-visibility: hidden;
-  margin-bottom: 3.5rem;
-}
-.heading-primary--main {
-  display: block;
-  font-size: 8rem;
-  font-weight: 400;
-  letter-spacing: 2.5rem;
-  animation-name: moveInLeft;
-  animation-duration: 1s;
-  animation-timing-function: ease-out;
-}
-.heading-primary--sub {
-  display: block;
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: 0.93rem;
-  animation: moveInRight 1s ease-out;
-}
-
-@keyframes moveInLeft {
-  /* Start of Animations */
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem);
-  }
-  80% {
-    transform: translateX(1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-@keyframes moveInRight {
-  /* Start of Animations */
-  0% {
-    opacity: 0;
-    transform: translateX(10rem);
-  }
-  80% {
-    transform: translateX(-1rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
-}
-@keyframes moveInButtom {
-  0% {
-    opacity: 0;
-    transform: translateY(10rem);
-  }
-  70% {
-    opacity: 1;
-    transform: translateY(-2.5rem);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0px);
-  }
-}
-.btn:link, .btn:visited {
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 1.5rem 4rem;
-  display: inline-block;
-  transition: all .2s;
-  border-radius: 10rem;
-  font-size: 1.6rem;
-  /* see Comment below for explation */
-  position: relative;
-  /* In order align the button in the Center we have set the header__text-box text-align propertes because button is inline element*/
-}
-.btn--white {
-  background-color: #fff;
-  color: #777;
-  border-radius: 2.8rem;
-}
-.btn:hover {
-  transform: translateY(-0.3rem);
-  /* X, Y, blurr, color   We reduce the show in active state*/
-  box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.2);
-}
-.btn:active {
-  transform: translateY(-0.1rem);
-  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
-}
-.btn::after {
-  content: "";
-  display: inline-block;
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  border-radius: 10rem;
-  z-index: -1;
-  transition: all .4s;
-}
-.btn--white::after {
-  background-color: #fff;
-}
-.btn:hover::after {
-  transform: scaleX(1.4) scaleY(1.6);
-  opacity: 0;
-}
-.btn--animated {
-  animation: moveInButtom .5 ease-out 1.35s;
-  animation-fill-mode: backwards;
-}
