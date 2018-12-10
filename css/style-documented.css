@@ -1,29 +1,27 @@
 /*Table OF Contents
-  ------------------------------------
-  1 GENERAL
-  ------ 1.1  Typography
-  ------ 1.2  Resetting
-  2 HEADER
-  ----2.1 Logo
-  ----2.2 text-box
-      2.3 heading-primary
-        2.3.1 heading-primary-main
-        2.3.2 heading-primary-sub
-        2.3.3 btn btn-white btn-animated
-  ------------------------------------*/
+------------------------------------
+1 GENERAL
+------ 1.1  Typography
+------ 1.2  Resetting
+2 HEADER
+----2.1 Logo
+----2.2 text-box
+    2.3 heading-primary
+      2.3.1 heading-primary-main
+      2.3.2 heading-primary-sub
+      2.3.3 btn btn-white btn-animated
+------------------------------------*/
 /*
-  COLORS:
-  Light green: #7ed56f
-  Medium green: #55c57a
-  Dark green: #28b485
-  */
+COLORS:
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+*/
 /*=========================================================
-    RESETTING
-  ===========================================================*/
+  RESETTING
+===========================================================*/
 /* Resetting the Margins and Padding using universal Selector */
-*,
-*::before,
-*::after {
+* {
   margin: 0px;
   padding: 0px;
   /* We want to force inheritance by default */
@@ -31,13 +29,13 @@
 }
 
 /*
-          Since we are converting the px to rem so that we can make responsive Design
-          Therefore we convert 10px = 1 rem
-          Since user can change the default font size. ByDefault font-size is 16px
-          so the font-size of html is 16px;
-          62.5*16 = 10px therefore the font-size is 62.5%
-          Internet exploral dont support rems
-        */
+    Since we are converting the px to rem so that we can make responsive Design
+    Therefore we convert 10px = 1 rem
+    Since user can change the default font size. ByDefault font-size is 16px
+    so the font-size of html is 16px;
+    62.5*16 = 10px therefore the font-size is 62.5%
+    Internet exploral dont support rems
+  */
 html {
   font-size: 62.5%;
 }
@@ -55,9 +53,9 @@ body {
 }
 
 /*=========================================================
-        >2  HEADER
-      ===========================================================*/
-.header {
+  >2  HEADER
+===========================================================*/
+header {
   height: 95vh;
   background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero-small.jpg);
   background-size: cover;
@@ -65,20 +63,30 @@ body {
   /* Start from top left move clockwise */
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
   position: relative;
-  /*
-          Header is the parent Element which serves as a reference to the child logo Element
-          therefore the header has position relative
-      */
-  /* Text box Wrapper */
 }
+
+/*----------------------------*\
+  >2.1 Logo
+\*----------------------------*/
+/*
+    Header is the parent Element which serves as a reference to the child logo Element
+    therefore the header has position relative
+*/
 .header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem;
 }
+
+/* We need to figure out either height or width other would be figured out by browser */
 .header__logo {
   height: 3.5rem;
 }
+
+/*----------------------------*\
+  >2.2 text-box
+\*----------------------------*/
+/* Text box Wrapper */
 .header__text-box {
   position: absolute;
   left: 50%;
@@ -87,6 +95,9 @@ body {
   text-align: center;
 }
 
+  /*----------------------------*\
+  >2.3 heading-primary
+\*----------------------------*/
 .heading-primary {
   text-transform: uppercase;
   color: #fff;
@@ -94,6 +105,10 @@ body {
   backface-visibility: hidden;
   margin-bottom: 3.5rem;
 }
+
+/*----------------------------*\
+  >2.3.1 heading-primary-main
+\*----------------------------*/
 .heading-primary--main {
   display: block;
   font-size: 8rem;
@@ -102,15 +117,33 @@ body {
   animation-name: moveInLeft;
   animation-duration: 1s;
   animation-timing-function: ease-out;
+  /*
+  animation-iteration-count: 2;
+  animation-delay: 2s;
+  */
 }
+
+/*----------------------------*\
+  >2.3.2 heading-primary-sub
+\*----------------------------*/
 .heading-primary--sub {
   display: block;
   font-size: 2.4rem;
   font-weight: 700;
-  letter-spacing: 0.93rem;
+  letter-spacing: .93rem;
+  /* animation-name: moveInRight;
+  animation-duration: 1s;
+  animation-timing-function: ease-out; */
   animation: moveInRight 1s ease-out;
 }
 
+  /*
+    Animations for the header
+
+    Transform property of css is used for the transformation of Content
+    TranslateX is the x-directions ---x> -x move to left and +x move to right\
+    Keyframs specifies the animation code
+  */
 @keyframes moveInLeft {
   /* Start of Animations */
   0% {
@@ -153,7 +186,17 @@ body {
     transform: translateY(0px);
   }
 }
-.btn:link, .btn:visited {
+/*----------------------------*\
+  >2.3.3 btn btn-white
+\*----------------------------*/
+/*
+  PseudoClasses are the state of the Element
+  When you use hover it determines the state
+  We want our anchor button to be same whether we click on it or not therefore both the states (clicked, Unclicked)
+  have same CSS Properties
+*/
+.btn:link,
+.btn:visited {
   text-transform: uppercase;
   text-decoration: none;
   padding: 1.5rem 4rem;
@@ -165,39 +208,66 @@ body {
   position: relative;
   /* In order align the button in the Center we have set the header__text-box text-align propertes because button is inline element*/
 }
+
 .btn--white {
   background-color: #fff;
   color: #777;
   border-radius: 2.8rem;
 }
+
+  /*
+      Animations for the Button
+
+      Negative Value moving up and positive value moving down
+      Y axis move from top to Bottom.
+  */
 .btn:hover {
   transform: translateY(-0.3rem);
   /* X, Y, blurr, color   We reduce the show in active state*/
   box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.2);
 }
+
 .btn:active {
   transform: translateY(-0.1rem);
   box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.2);
 }
+
+/*
+We create a pseudo Element which appears behind the Button Element when we hover over it
+It appears like the child of the Element
+*/
+/* We need to specify the 'content' and 'display' otherwise it won't work */
 .btn::after {
   content: "";
   display: inline-block;
   height: 100%;
   width: 100%;
   position: absolute;
+  /*
+    In order to position this we have set position property of btn:visited to relative
+    For absolute Positioning: It would search for the nearest parent Element with position property relative
+  */
   top: 0px;
   left: 0px;
+  /* Hight value of border radius automatically set the Radius */
   border-radius: 10rem;
   z-index: -1;
   transition: all .4s;
 }
+
 .btn--white::after {
   background-color: #fff;
 }
+
+/*
+  We make position of btn as absolute so that it can have properties relative to the parent element. Since next parent is h1. Its properties are coresponding to the h1. Therefore in order to make its properties corresponding to btn we make it postion: relative
+*/
+/* It will transform the after element when we hover over the Button */
 .btn:hover::after {
   transform: scaleX(1.4) scaleY(1.6);
   opacity: 0;
 }
+
 .btn--animated {
   animation: moveInButtom .5 ease-out 1.35s;
   animation-fill-mode: backwards;
