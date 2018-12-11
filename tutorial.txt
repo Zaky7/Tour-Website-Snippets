@@ -1,0 +1,17 @@
+3 building blocks of Modern CSS Web Development
+# Fluid Design:
+  It ensures website easily adapt to current viewport width to browse the website
+  It uses % rather than px for all layout related length
+
+  3 technologies used for Fluid Design:
+    * Float layout:
+    * CSS grid:
+    * Flex box:
+    Last 2 are not supported by all Modern browser
+
+# Flexible/ Responsive Images
+  Images behave different than the text we need to ensure the adapt nicely to the viewport
+
+
+# Media Queries:
+  It allows us to change the design of website for different plateform. It allows us to create different version of websites for different width.
