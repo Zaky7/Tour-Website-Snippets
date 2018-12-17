@@ -2,7 +2,6 @@
   // 1rem 10px
   // if width is less than max-width then it occupies 100% of width
   max-width: $grid-width;
-  background-color: #eee;
   margin: 0 auto; 
 
   &:not(:last-child) {
@@ -12,8 +11,6 @@
   @include clearfix;
 
   [class^="col-"] {
-    background-color: #f22253ba;
-    color: white;
     float: left;
     height: $grid-height;
     &:not(:last-child) {

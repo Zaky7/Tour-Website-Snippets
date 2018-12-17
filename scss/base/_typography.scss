@@ -12,7 +12,6 @@
  .heading-primary {
    text-transform: uppercase;
    color: #fff;
-
    /* Removing shakyness in css animations of header */
    backface-visibility: hidden;
    margin-bottom: 3.5rem;
@@ -34,4 +33,27 @@
      letter-spacing: 0.93rem;
      animation: moveInRight 1s ease-out;
    }
+ }
+
+
+ .heading-secondary {
+   font-size: 3.5rem;
+   text-transform: uppercase;
+   font-weight: 700;
+  //  Gradient Transition
+   background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+  // Make the background only occur within the text
+  display: inline-block;
+  background-clip: text;
+  -webkit-background-clip: text;
+  // Make the color transparent
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s;
+
+  &:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    /* offset-x | offset-y | blur-radius | color , opacity(20 %)*/
+    text-shadow: .5rem 1rem 2rem rgba($color-black, .2)
+  }
  }
