@@ -234,8 +234,7 @@ body {
     display: table;
     clear: both; }
   .row [class^="col-"] {
-    float: left;
-    height: 4rem; }
+    float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 8rem; }
   .row .col-1-of-2 {
