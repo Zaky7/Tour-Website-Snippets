@@ -1,0 +1,47 @@
+.composition {
+  // Make its position relative so that child elements are position according
+  // to the parent Elements
+  position: relative;
+  &__photo {
+    // Specify the width as percentages then they can scale with the Viewport
+    width: 55%;
+    box-shadow: 0 1.5rem 4rem rgba($color: $color-black, $alpha: 0.4);
+    border-radius: 2px;
+    position: absolute;
+    z-index: 10;
+    outline-offset: 2rem;
+    transition: all .2s;
+
+    &--p1 {
+      left: 0;
+      top: -2rem;
+    }
+
+    &--p2 {
+      right: 0;
+      top: 2rem;
+    }
+
+    &--p3 {
+      // Responsive Design
+      left: 20%;
+      top: 10rem;
+    }
+
+    &:hover {
+      // translate Y move up in the direction
+      transform: scale(1.05) translateY(-.5rem);
+      box-shadow: 0 2.5rem 4rem rgba($color: $color-black, $alpha: 0.5);
+      // Higher z-index show the priority of the html Element
+      z-index: 20;
+      // set the border using outline and in parent define the offset
+      outline: 1.5rem solid $color-primary;
+    }
+  }
+
+  // When we hover over a image image which are not selected are shrunkun
+  // composition:hover composition__photo:not(:hover)
+  &:hover &__photo:not(:hover) {
+    transform: scale(.95);
+  }
+}
