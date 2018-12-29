@@ -1,4 +1,9 @@
 3 building blocks of Modern CSS Web Development
+
+# install node sass
+  npm install -g mirror-config-china --registry=http://registry.npm.taobao.org
+  npm install --save node-sass
+
 # Fluid Design:
   It ensures website easily adapt to current viewport width to browse the website
   It uses % rather than px for all layout related length
@@ -15,3 +20,4 @@
 
 # Media Queries:
   It allows us to change the design of website for different plateform. It allows us to create different version of websites for different width.
+
