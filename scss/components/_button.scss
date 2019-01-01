@@ -17,7 +17,13 @@
 
   &--white {
     background-color: #fff;
-    color: #777;
+    color: $color-grey-dark;
+    border-radius: 2.8rem;
+  }
+
+  &--green {
+    background-color: $color-primary;
+    color: #f7f7f7;
     border-radius: 2.8rem;
   }
 
@@ -47,6 +53,10 @@
 
   &--white::after {
     background-color: #fff;
+  }
+
+  &--white::after {
+    background-color: $color-primary;
   }
 
   &:hover::after {
