@@ -11,6 +11,7 @@
    background-size: cover;
    /* background-position: top; */
    /* Start from top left move clockwise */
+   -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
    position: relative;
 
