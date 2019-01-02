@@ -3,7 +3,7 @@
     margin: 0 auto;
     /* X, Y, blurr, color   We reduce the show in active state*/
     box-shadow: 0 3rem 6rem rgba($color: $color-black, $alpha: .1);
-    background-color: $color-white;
+    background-color: rgba($color: $color-white, $alpha: .6);
     border-radius: 3px;
     padding: 6rem;
 
