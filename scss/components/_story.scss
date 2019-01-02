@@ -1,0 +1,38 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    /* X, Y, blurr, color   We reduce the show in active state*/
+    box-shadow: 0 3rem 6rem rgba($color: $color-black, $alpha: .1);
+    background-color: $color-white;
+    border-radius: 3px;
+    padding: 6rem;
+
+    // Added due &__shape transform
+    padding-left: 9rem;
+    font-size: $default-font-size;
+
+    &__shape {
+        height: 15rem;
+        width:  15rem;
+        float: left;
+
+        // for Circular shape outside
+        // It is 50% of height and width therefore 7.5rem;
+        // It is centered around center 50% 50%
+        // It requires element to be floating and have defined dimension width and height
+        // Only supported in Safari with webkit and Chrome
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-clip-path:circle(50% at 50% 50%); 
+        clip-path:circle(50% at 50% 50%); 
+
+        // In order to add space for a floating element we need transform and then translate 
+        // Instead of adding Padding
+        transform: translateX(-3rem);
+    }
+
+    // 100% of parent 50rem;
+    &__img {
+        width: 100%;
+    }
+}
