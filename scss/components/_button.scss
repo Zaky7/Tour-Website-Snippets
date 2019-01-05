@@ -1,6 +1,7 @@
 // Main Header button
 .btn {
 
+  &,
   &:link,
   &:visited {
     text-transform: uppercase;
@@ -13,6 +14,10 @@
     /* see Comment below for explation */
     position: relative;
     /* In order align the button in the Center we have set the header__text-box text-align propertes because button is inline element*/
+    
+    // For Button Element
+    border: none;
+    cursor: pointer;
   }
 
   &--white {
@@ -27,7 +32,10 @@
     border-radius: 2.8rem;
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
+    // For the button element in the Form
+    outline: none;
     transform: translateY(-0.3rem);
     /* X, Y, blurr, color   We reduce the show in active state*/
     box-shadow: 0px 1rem 2rem rgba(0, 0, 0, 0.2);
