@@ -1,0 +1,63 @@
+.form {
+    &__input {
+        font-size: 1.5rem;
+        // make left-right padding larger than top bottom
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color: $color-white, $alpha: 0.5);
+        border: none;
+
+        // Input Element don't Inherit the font properties;
+        color: inherit;
+
+        // they don't inherit the font family by default i.e. 'Lato'
+        font-family: inherit;
+        width: 90%;
+        // It would stop element going down on focus as border-bottom property applied;
+        // It stays there but it transparent
+        border-bottom: 3px solid transparent;
+        display: block;
+
+        &:focus {
+            // Stop input element turning blue on focus
+            outline: none;
+            box-shadow: 0 1 2rem rgba($color: $color-black, $alpha: .5);
+            border-bottom: 3px solid $color-primary-dark;
+        }
+
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+    }
+
+   
+
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+
+    &__label {
+      font-family: inherit;
+      font-size: 1.2rem;
+      display: block;
+      font-weight: 700;
+      margin-left: 2rem;
+      margin-top: .7rem;
+      transition: all .2s;
+    }
+
+    //  + : is used to denote the adjacent siblings
+    //  ~ : is used to denote the siblings
+    //  Label need to be after input element in order to be selected
+    &__input:placeholder-shown + &__label {
+        // It can be animated
+        opacity: 0;
+        // Visibility cannot be animated
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
