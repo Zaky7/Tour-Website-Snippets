@@ -641,6 +641,7 @@ body {
   margin: 1rem; }
 
 .navigation__link:link, .navigation__link:visited {
+  display: inline-block;
   font-size: 3rem;
   font-weight: 300;
   color: #fff;
@@ -648,12 +649,26 @@ body {
   text-transform: uppercase;
   background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
   background-size: 220%;
-  padding: 2.3px 2rem;
+  padding: 1rem 2rem;
   transition: all .4s; }
 
 .navigation__link:hover, .navigation__link:active {
   background-position: 100%;
+  color: #55c57a;
   transform: translateX(1rem); }
+
+.navigation__link span {
+  margin-right: 1rem;
+  display: inline-block; }
+
+.navigation__icon, .navigation__icon::before, .navigation__icon::after {
+  width: 3rem;
+  height: 1px;
+  display: inline-block;
+  background-color: #333; }
+
+.navigation__icon::before, .navigation__icon::after {
+  content: ""; }
 
 /*
 Table OF Contents
