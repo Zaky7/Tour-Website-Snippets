@@ -9,6 +9,8 @@
         background-color: $color-white;
         height: 7rem;
         width: 7rem;
+        cursor: pointer;
+        
         // It is like absolute but 
         // It takes the position with the Page on contrary of the Parent Element
         position: fixed;
@@ -16,8 +18,8 @@
         right: 6rem;
         border-radius: 50%;
         z-index: 2000;
-
         text-align: center;
+        box-shadow: 0 1rem 3rem rgba($color: $color-black, $alpha: 0.1);
     }
 
     &__background {
@@ -29,21 +31,29 @@
         right: 6.5rem;
         background-image: radial-gradient($color-primary-light, $color-primary-dark);
         z-index: 1000;
-        transform: scale(80);
+        transition: transform .8s;
+        // transform: scale(80);
     }
 
     &__nav {
         height: 100vh;
-        width: 100%;
+        width: 0;
+        opacity: 0;
         position: fixed;
         top: 0;
         right: 0;
         z-index: 1200;
+        transition: all .8s;
     }
  
     &__list {
-        @include center;
+        position: absolute;
+        top: 50%;
+        left: 91%;
+        transform: translate(-50%, -50%);
         list-style: none;
+        // So that it won't get affected by animations
+        width: 100%;
     }
 
 
@@ -80,11 +90,14 @@
     }
 
     &__icon {
+        position: relative;
+        margin-top: 3.3rem;
+        
         &,
         &::before,
         &::after {
             width: 3rem;
-            height: 1px;
+            height: 1.8px;
             display: inline-block;
             background-color: $color-grey-dark-3;
         }
@@ -92,11 +105,28 @@
         &::before,
         &::after {
           content: "";
+          position: absolute;
+          left: 0;
         }
 
+        &::before {
+            top: -1rem;
+        }
+
+        &::after {
+            top: 1rem;
+        }
     }
 
+    // General sibling selector
+    &__checkbox:checked ~  &__background {
+        transform: scale(80);
+    }
 
+    &__checkbox:checked ~  &__nav {
+        opacity: 1;
+        width: 100%;
+    }
  }
 
 
