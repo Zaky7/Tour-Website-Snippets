@@ -10,7 +10,7 @@
         height: 7rem;
         width: 7rem;
         cursor: pointer;
-        
+
         // It is like absolute but 
         // It takes the position with the Page on contrary of the Parent Element
         position: fixed;
@@ -107,6 +107,7 @@
           content: "";
           position: absolute;
           left: 0;
+          transition: all .2s;
         }
 
         &::before {
@@ -118,6 +119,14 @@
         }
     }
 
+    &__button:hover &__icon::before {
+        top: -1rem;
+    }
+
+    &__button:hover &__icon::after {
+        top: 1rem;
+    }
+
     // General sibling selector
     &__checkbox:checked ~  &__background {
         transform: scale(80);
@@ -126,6 +135,22 @@
     &__checkbox:checked ~  &__nav {
         opacity: 1;
         width: 100%;
+    }
+
+    // Logic for making cross the navigation circle button checked
+    // Getting the immediate siblings navigation icon then its child span
+    &__checkbox:checked + &__button &__icon {
+        background-color: transparent;
+    }
+
+    &__checkbox:checked + &__button &__icon::before {
+        top: 0;
+        transform: rotate(135deg);
+    }
+
+    &__checkbox:checked + &__button &__icon::after {
+        top: 0;
+        transform: rotate(-135deg);
     }
  }
 
