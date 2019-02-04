@@ -25,6 +25,30 @@
   html {
     // Defines what 1 rem is
     font-size: 62.5%;
+    // 1rem = 10px = 10/16 = 62.5%;
+  
+    // width < 900
+    @include respond(tab-land) {
+      font-size: 56.25%; // 1rem = 9px = 9/16 = 56.25% 
+    }
+
+
+    // If we have viewport width of 600 then 
+    // tab-land and tab-port both would be 
+    // Applied and the tab-port being the last
+    // would be applied at the Last
+    // So place the media query in order of larger 
+    // one-s ahead than smaller ones
+    // width < 600
+    @include respond(tab-port) {
+      font-size: 50%; // 1rem = 8px = 8/16= 50%'
+    }
+
+
+    @include respond(big-desktop) {
+      font-size: 80%;  // 1rem = 12px = 12/16= 75% 
+    }
+
   }
   
   /* We are inheriting the Fonts of the Html Element */
@@ -32,4 +56,10 @@
    
     /* The box-sizing property allows us to include the padding and border in an element's total width and height. */
     box-sizing: border-box;
+    padding: 3rem;
+
+    // 600 px
+    @include respond(tab-port) {
+      padding: 0;
+    }
   }
