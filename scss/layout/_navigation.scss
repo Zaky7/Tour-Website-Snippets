@@ -20,6 +20,16 @@
         z-index: 2000;
         text-align: center;
         box-shadow: 0 1rem 3rem rgba($color: $color-black, $alpha: 0.1);
+
+        @include respond(tab-port) {
+            top: 4rem;
+            right: 4rem;
+        }
+
+        @include respond(phone) {
+            top: 3rem;
+            right: 3rem;
+        }
     }
 
     &__background {
@@ -33,6 +43,17 @@
         z-index: 1000;
         transition: transform .8s;
         // transform: scale(80);
+
+        @include respond(tab-port) {
+            top: 4.5rem;
+            right: 4.5rem;
+        }
+
+
+        @include respond(phone) {
+            top: 3.5rem;
+            right: 3.5rem;
+        }
     }
 
     &__nav {

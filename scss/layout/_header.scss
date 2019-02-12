@@ -11,9 +11,23 @@
    background-size: cover;
    /* background-position: top; */
    /* Start from top left move clockwise */
-   -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+   -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
    position: relative;
+
+   // < 12
+   @include respond(tab-land) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 90%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 90%);
+    }
+ 
+    // < 900
+   @include respond(tab-port) {
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 90vh, 0 95%);
+    clip-path: polygon(0 0, 100% 0, 100% 82vh, 0 95%);
+    }
+
+  
 
    /*
                   Header is the parent Element which serves as a reference to the child logo Element
