@@ -33,6 +33,11 @@
         &:focus:invalid {
             border-bottom: 3px solid $color-secondary-dark;
         }
+
+
+        @include respond(tab-port) {
+            width: 100%;
+        }
     }
 
    
@@ -65,6 +70,11 @@
     &__radio-group {
         display: inline-block;
         width: 49%;
+
+        @include respond(tab-port) {
+            width: 100%;
+            margin-bottom: 1rem;
+        }
     }
 
     &__radio-label {
